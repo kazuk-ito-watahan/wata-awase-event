@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dropbox フォルダ埋め込みテスト</title>
+
+ <!---------------- Dropbox設定ここから ---------------->
+  <script
+    id="dropboxjs"
+    src="https://www.dropbox.com/static/api/2/dropins.js"
+    type="text/javascript"
+    data-app-key="pstdq96nbz6o2np">
+  </script>
+ <!---------------- Dropbox設定ここまで ---------------->
+
+  <style>
+    #preview {
+      width: 100%;
+      max-width: 95vh;
+      height: 60vh;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+    @media (max-width: 1023px) {
+      #preview { height: 60vh; }
+    }
+    @media (max-width: 599px) {
+      #preview { height: 80vh; }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <h1>Dropbox フォルダ埋め込みテスト</h1>
+  <!---------------- 画像埋め込みここから ---------------->
+  <!-- 埋め込み用div -->
+  <div id="preview"></div>
+
+  <script>
+    var options = {
+      //表示させるフォルダの共有リンク
+      link: "https://www.dropbox.com/scl/fo/t6o0cry6axycbdcu2x8ux/AEP07ElCk-33aAO0TAiR-CM?rlkey=pgfjane3jjecpy4yhn56tk7td&dl=0",
+      file: {
+        // ファイルプレビューのズームモード: 'best' または 'fit'
+        zoom: "fit"
+      },
+      folder: {
+        // フォルダビューのモード: 'list' または 'grid'
+        view: "grid",
+        // ヘッダーサイズ: 'normal' または 'small'
+        headerSize: "small"
+      }
+    };
+
+    //Dropboxからデータロード、previewのdivに埋め込み
+    Dropbox.embed(options, document.getElementById('preview'));
+
+  </script>
+  <!---------------- 画像埋め込みここまで ---------------->
+
+
+
+</body>
+</html>
